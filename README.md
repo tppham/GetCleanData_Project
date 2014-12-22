@@ -28,7 +28,7 @@ Source code for project under Coursera "Getting and Cleaning Data"
 3. **Combine test and train data into one dataset**
 + Use rbind to comebind earlier data from test and train folder call **output**
 
-4.  **Change activity variable into descriptive value
+4.  **Change activity variable into descriptive value**
 + replace value of activity column by chracter provided in features.txt
 
 5. ** creation of tidy dataset**
