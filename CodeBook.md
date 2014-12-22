@@ -1,4 +1,9 @@
 GetCleanData_Project
 ====================
 
-Source code for project under Coursera "Getting and Cleaning Data"
+#CODEBOOK for Human Activity Recognition Using Smartphones Dataset
+
+
+
+Variable name | Description | Example value
+--- | --- | ---
