@@ -13,25 +13,23 @@ Source code for project under Coursera "Getting and Cleaning Data"
 
 
 ##How it works
-1. **Extract feature names that contain mean and standard deviation for each measurement**. 
+###**Extract feature names that contain mean and standard deviation for each measurement**. 
 + Feature names are extracted from feature.txt . First we load feature.txt into R
 + Search for elements that containt word "mean" or "std" and stored as **anames**
-
-2. **Extract records from Train and Test directory.**
+### **Extract records from Train and Test directory.**
 + read subject_test.txt as subjectId data
 + read X_test.txt as feature data
 + read y_test.txt as activity data
 + Based on list of prefered feature names extracted earlier, we subset feature data
 + Update column names of feature with fnames for a meaningful column name
 + use cbind to combine subjectid, activity and feature data
-
-3. **Combine test and train data into one dataset**
+### **Combine test and train data into one dataset**
 + Use rbind to comebind earlier data from test and train folder call **output**
 
-4.  **Change activity variable into descriptive value**
+### **Change activity variable into descriptive value**
 + replace value of activity column by chracter provided in features.txt
 
-5. ** creation of tidy dataset**
+###** creation of tidy dataset**
 + create a column name subjectactivity using paste(subjectId , activity)
 + using reshape library, melt the data with variables as fnames
 + using dcast to cast melted data with subjectactivity ~ variable and mean funtion to get the mean of each measurement for each activity and each subject
