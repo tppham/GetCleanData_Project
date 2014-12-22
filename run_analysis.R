@@ -17,18 +17,19 @@ run_analysis <- function() {
 	
 	#combine test data and train data into one dataset
 	output <- rbind(testdata,traindata)
-	
+	?
 	#use descriptive activity names for activity in dataset
 	output$activity <- anames[output$activity,2]
 	
 	#write the output into tidydata.txt 
 	write.table(output,file="tidydata.txt", row.names=FALSE)
+    
+    output
 }
 
 ## Function extract_data will take three files as input for the extraction.
 ## INPUT:  featurename and three files include: 
 ## 1. fname: list of feature name to subset
-## 2. aname: list of activity label 
 ## 2. subjectfile stores the id of participant (e.g subject_test.txt)
 ## 3. featurefile stores stores the measurement captured (e.g. x_test.txt)
 ## 4. activitiesfile stores the activities that participant do such as: walking, standing, laying, ... (e.g. y_test.txt)
@@ -52,6 +53,15 @@ extract_data <- function(fnames, subjectfile, featurefile, activitiesfile) {
 	
 	#combine 3 dataframe as output
 	output <-cbind(subject, activity, feature)
-	output
+	
+    #average each variable for each activity and each subject
+    library(reshape2)
+    output$subjectactivity <- paste(output$subjectId, output$activity)
+    outputmelt <- melt(output, id="subjectactivity", measure.vars = fnames[,2])
+    outputcast <- dcast(outputmelt, subjectactivity ~ variable, mean)
+    
+    #write data to tidydata.txt
+    write.table(outputcast, file="tidydata.txt")
+    
 	
 }
