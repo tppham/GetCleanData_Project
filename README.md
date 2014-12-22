@@ -29,7 +29,7 @@ Source code for project under Coursera "Getting and Cleaning Data"
 ### **Change activity variable into descriptive value**
 + replace value of activity column by chracter provided in features.txt
 
-###** creation of tidy dataset**
+### **creation of tidy dataset**
 + create a column name subjectactivity using paste(subjectId , activity)
 + using reshape library, melt the data with variables as fnames
 + using dcast to cast melted data with subjectactivity ~ variable and mean funtion to get the mean of each measurement for each activity and each subject
